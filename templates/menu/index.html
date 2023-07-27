@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Menu</h1>
+    <p>Welcome to the restaurant</p>
+    <h3>Menu content:</h3>
+    <ul>
+        <li>Num dish: {{ num_dishes }}</li>
+        <li>Num cooks: {{ num_cooks }}</li>
+        <li>Num dish types: {{ num_dish_types }}</li>
+    </ul>
+
+  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+{% endblock %}
