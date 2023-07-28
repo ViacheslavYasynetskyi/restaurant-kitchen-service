@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'crispy_bootstrap4',
     'menu',
 ]
 
@@ -105,6 +106,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = "menu.Cook"
+
+LOGIN_REDIRECT_URL = "/"
 
 
 # Internationalization
