@@ -23,7 +23,7 @@
     {% for cooker in cook_list %}
       <tr>
         <td>{{ cooker.id }}</td>
-        <td><a href="{{ cooker.get_absolute_url }}">{{ cooker.username }} {% if user == cooker %} (Me){% endif %}</a></td>
+        <td><a href="{% url 'menu:cooks-detail' pk=cooker.id %}">{{ cooker.username }} {% if user == cooker %} (Me){% endif %}</a></td>
         <td>{{ cooker.first_name }}</td>
         <td>{{ cooker.last_name }}</td>
         <td>{{ cooker.years_of_experience }}</td>

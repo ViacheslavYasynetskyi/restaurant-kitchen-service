@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 
 class DishType(models.Model):
@@ -35,4 +36,4 @@ class Dish(models.Model):
     )
 
     class Meta:
-        ordering = ["dish_type"]
+        ordering = ["id"]
