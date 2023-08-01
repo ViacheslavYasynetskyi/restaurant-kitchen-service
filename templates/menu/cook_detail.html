@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>
-    Cooker: {{ cook.username }}
+    Cook: {{ cook.username }}
     <a href="{% url 'menu:cooks-delete' pk=cook.id %}" class="btn btn-danger link-to-page">
       Delete
     </a>

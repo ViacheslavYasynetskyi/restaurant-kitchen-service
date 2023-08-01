@@ -36,4 +36,4 @@ class Dish(models.Model):
     )
 
     class Meta:
-        ordering = ["id"]
+        ordering = ["dish_type"]
