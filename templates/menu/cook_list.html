@@ -2,36 +2,43 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-    <h1>
-      Cooks List
-      <a href="{% url 'menu:cooks-create' %}" class="btn btn-primary link-to-page">
-        Create
-      </a>
-    </h1>
+    <div class="bg-primary">
+        <h1 class="p-3">
+            Cooks List
+        </h1>
 
-    {% include "includes/search_form.html" %}
+        <a href="{% url 'menu:cooks-create' %}" class="btn btn-primary link-to-page ml-2 bg-dark">
+            Create
+        </a>
+        {% include "includes/search_form.html" %}
 
-    {% if cook_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Years of Experience</th>
-      </tr>
-    {% for cooker in cook_list %}
-      <tr>
-        <td>{{ cooker.id }}</td>
-        <td><a href="{% url 'menu:cooks-detail' pk=cooker.id %}">{{ cooker.username }} {% if user == cooker %} (Me){% endif %}</a></td>
-        <td>{{ cooker.first_name }}</td>
-        <td>{{ cooker.last_name }}</td>
-        <td>{{ cooker.years_of_experience }}</td>
-      </tr>
-    {% endfor %}
+        {% if cook_list %}
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Years of Experience</th>
+            </tr>
+        {% for cooker in cook_list %}
+            <tr>
+                <td>{{ cooker.id }}</td>
+                <td><a href="{% url 'menu:cooks-detail' pk=cooker.id %}" class="text-dark">{{ cooker.username }} {% if user == cooker %} (Me){% endif %}</a></td>
+                <td>{{ cooker.first_name }}</td>
+                <td>{{ cooker.last_name }}</td>
+                <td>{{ cooker.years_of_experience }}</td>
+            </tr>
+        {% endfor %}
 
-    </table>
-    {% else %}
-      <p>There are no cookers in the restaurant.</p>
-    {% endif %}
+        </table>
+        {% else %}
+            <p>There are no cookers in the restaurant.</p>
+        {% endif %}
+    </div>
+    <div class="pe-auto">
+        <a href="{% url 'menu:index' %}" class="btn btn-primary link-to-page bg-dark ml-2">
+            Back
+        </a>
+    </div>
 {% endblock %}

@@ -1,35 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    {{ dish.name }}
-    <a href="{% url 'menu:dishes-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
+    <div class="bg-primary">
+      <h1>
+        {{ dish.name }}
+        <a href="{% url 'menu:dishes-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
+          Delete
+        </a>
 
-    <a href="{% url 'menu:dishes-update' pk=dish.id %}" class="btn btn-secondary link-to-page">
-      Update
-    </a>
-  </h1>
-  <p>Dish type: ({{ dish.dish_type.name }})</p>
-  <h1>
-    Cookers
+        <a href="{% url 'menu:dishes-update' pk=dish.id %}" class="btn btn-secondary link-to-page">
+          Update
+        </a>
 
-    {% if car in user.dishes.all %}
-      <a href="{% url 'menu:toggle-dish-assign' pk=dish.id %}" class="btn btn-danger link-to-page">
-        Delete me from this dish
-      </a>
-    {% else %}
-      <a href="{% url 'menu:toggle-dish-assign' pk=dish.id %}" class="btn btn-success link-to-page">
-        Assign me from this dish
-      </a>
-    {% endif %}
+        <a href="{% url 'menu:dishes-list' %}" class="btn btn-dark link-to-page">
+          Back
+        </a>
+      </h1>
+      <p>Dish type: ({{ dish.dish_type.name }})</p>
+      <h1>
+        Cookers
 
-  </h1>
-  <hr>
-  <ul>
-    {% for cooker in dish.cooks.all %}
-      <li>{{ cooker.username }} ({{ cooker.first_name }} {{ cooker.last_name }})</li>
-    {% endfor %}
-  </ul>
+        {% if car in user.dishes.all %}
+          <a href="{% url 'menu:toggle-dish-assign' pk=dish.id %}" class="btn btn-danger link-to-page">
+            Delete me from this dish
+          </a>
+        {% else %}
+          <a href="{% url 'menu:toggle-dish-assign' pk=dish.id %}" class="btn btn-success link-to-page">
+            Assign me from this dish
+          </a>
+        {% endif %}
+
+      </h1>
+      <hr>
+      <ul>
+        {% for cooker in dish.cooks.all %}
+          <li>{{ cooker.username }} ({{ cooker.first_name }} {{ cooker.last_name }})</li>
+        {% endfor %}
+      </ul>;
+    </div>
 {% endblock %}
