@@ -17,6 +17,7 @@ from menu.views import (
     DishUpdateView,
     DishDeleteView,
     toggle_assign_to_dish,
+    # DishToggleAssignCookUpdateView,
 )
 
 urlpatterns = [

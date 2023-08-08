@@ -98,7 +98,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
-    queryset = Cook.objects.all().prefetch_related("cooks__dish_type")
+    queryset = Cook.objects.all().prefetch_related("dish__dish_type")
 
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
@@ -169,9 +169,15 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
 def toggle_assign_to_dish(request, pk):
     cooker = Cook.objects.get(id=request.user.id)
     if (
-        Dish.objects.get(id=pk) in cooker.cooks.all()
-    ):  # probably could check if car exists
-        cooker.cooks.remove(pk)
+        Dish.objects.get(id=pk) in cooker.dish.all()
+    ):
+        cooker.dish.remove(pk)
     else:
-        cooker.cooks.add(pk)
+        cooker.dish.add(pk)
     return HttpResponseRedirect(reverse_lazy("menu:dishes-detail", args=[pk]))
+
+
+# class DishToggleAssignCookUpdateView(LoginRequiredMixin, generic.):
+#     model = Dish
+#     fields = ["cooks"]
+#     success_url = reverse_lazy("menu:dishes-detail")

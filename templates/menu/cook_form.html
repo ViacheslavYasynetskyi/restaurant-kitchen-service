@@ -3,8 +3,8 @@
 
 {% block content %}
     <div class="bg-primary">
-      <h1 class="p-3">{{ object|yesno:"Update,Create" }} cooker</h1>
-      <form action="" method="post" novalidate class="m-3">
+      <h1 class="ml-5 p-3">{{ object|yesno:"Update,Create" }} cooker</h1>
+      <form action="" method="post" novalidate class="ml-5 mr-5">
         {% csrf_token %}
         {{ form|crispy }}
 

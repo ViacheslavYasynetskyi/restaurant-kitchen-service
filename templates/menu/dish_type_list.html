@@ -3,19 +3,19 @@
 
 {% block content %}
     <div class="bg-primary">
-      <h1 class="p-4">
+      <h1 class="ml-5 p-3">
         Dish Type List
 
       </h1>
-      <a href="{% url 'menu:dish-types-create' %}" class="btn btn-primary link-to-page bg-dark m-3">
+      <a href="{% url 'menu:dish-types-create' %}" class="btn btn-primary link-to-page bg-dark ml-5 mb-3">
           Create
       </a>
       {% include "includes/search_form.html" %}
 
       {% if dish_type_list %}
-        <table class="table ml-2">
+        <table class="table">
           <tr>
-            <th>ID</th>
+            <th class="pl-3">ID</th>
             <th>Name</th>
             <th>Update</th>
             <th>Delete</th>
@@ -23,7 +23,7 @@
 
           {% for dish_type in dish_type_list %}
             <tr>
-              <td>
+              <td class="pl-3">
                   {{ dish_type.id }}
               </td>
               <td>
@@ -48,7 +48,7 @@
           <p>There are no dish types in the menu.</p>
       {% endif %}
     </div>
-    <a href="{% url 'menu:index' %}" class="btn btn-primary link-to-page bg-dark ml-2">
+    <a href="{% url 'menu:index' %}" class="btn btn-primary link-to-page bg-dark ml-5 mb-3">
           Back
     </a>
 {% endblock %}

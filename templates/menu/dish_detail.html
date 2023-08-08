@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="bg-primary">
-      <h1>
+      <h1 class="ml-5 p-3">
         {{ dish.name }}
         <a href="{% url 'menu:dishes-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
           Delete
@@ -16,11 +16,11 @@
           Back
         </a>
       </h1>
-      <p>Dish type: ({{ dish.dish_type.name }})</p>
-      <h1>
+      <p  class="ml-5">Dish type: ({{ dish.dish_type.name }})</p>
+      <h1  class="ml-5 p-3">
         Cookers
 
-        {% if car in user.dishes.all %}
+        {% if dish in user.dish.all %}
           <a href="{% url 'menu:toggle-dish-assign' pk=dish.id %}" class="btn btn-danger link-to-page">
             Delete me from this dish
           </a>
@@ -32,7 +32,7 @@
 
       </h1>
       <hr>
-      <ul>
+      <ul class="ml-5">
         {% for cooker in dish.cooks.all %}
           <li>{{ cooker.username }} ({{ cooker.first_name }} {{ cooker.last_name }})</li>
         {% endfor %}

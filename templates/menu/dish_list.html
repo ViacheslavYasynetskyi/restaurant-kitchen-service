@@ -3,17 +3,17 @@
 
 {% block content %}
     <div class="bg-primary">
-      <h1 class="p-4">
+      <h1 class="ml-5 p-3">
         Dish list
 
       </h1>
-      <a href="{% url 'menu:dishes-create' %}" class="btn btn-primary link-to-page bg-dark m-3">
+      <a href="{% url 'menu:dishes-create' %}" class="btn btn-primary link-to-page bg-dark ml-5 mb-3">
           Create
       </a>
       {% include "includes/search_form.html" %}
 
       {% if dish_list %}
-        <ul class="ml-2">
+        <ul class="ml-3 pb-2">
           {% for dish in dish_list %}
             <li>
               <a href="{% url "menu:dishes-detail" pk=dish.id %} " class="text-dark">{{ dish.name }}</a>
@@ -25,7 +25,7 @@
         <p>There are no dishes in menu</p>
       {% endif %}
     </div>
-    <a href="{% url 'menu:index' %}" class="btn btn-primary link-to-page bg-dark ml-2">
+    <a href="{% url 'menu:index' %}" class="btn btn-primary link-to-page bg-dark ml-5 mb-3">
           Back
     </a>
 {% endblock %}
