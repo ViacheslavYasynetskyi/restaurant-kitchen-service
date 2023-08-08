@@ -32,7 +32,7 @@ class Dish(models.Model):
     )
     cooks = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
-        related_name="dish"
+        related_name="dishes"
     )
 
     class Meta:

@@ -27,7 +27,7 @@
       <div class="ml-5 pl-3 pb-2">
         <h4>Dishes</h4>
 
-        {% for food in cook.dish.all %}
+        {% for food in cook.dishes.all %}
             <hr>
             <p><strong>Name:</strong> {{ food.name }}</p>
             <p><strong>DishType:</strong> {{ food.dish_type.name }}</p>
