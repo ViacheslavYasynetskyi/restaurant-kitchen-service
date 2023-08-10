@@ -16,8 +16,8 @@ from menu.views import (
     DishCreateView,
     DishUpdateView,
     DishDeleteView,
-    toggle_assign_to_dish,
-    # DishToggleAssignCookUpdateView,
+    # toggle_assign_to_dish,
+    DishToggleAssignCookUpdateView,
 )
 
 urlpatterns = [
@@ -94,7 +94,7 @@ urlpatterns = [
     ),
     path(
         "dishes/<int:pk>/toggle-assign/",
-        toggle_assign_to_dish,
+        DishToggleAssignCookUpdateView.as_view(),
         name="toggle-dish-assign",
     ),
 ]

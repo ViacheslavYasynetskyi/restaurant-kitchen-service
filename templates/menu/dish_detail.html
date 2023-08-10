@@ -20,7 +20,7 @@
       <h1  class="ml-5 p-3">
         Cookers
 
-        {% if dish in user.dish.all %}
+        {% if dish in user.dishes.all %}
           <a href="{% url 'menu:toggle-dish-assign' pk=dish.id %}" class="btn btn-danger link-to-page">
             Delete me from this dish
           </a>
