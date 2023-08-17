@@ -4,7 +4,7 @@ Django project for managing cooks and dishes in Kitchen of Restaurant
 
 ## Check it out!
 
-[Restaurant kitchen service project deployed to Readme.md](LINK_HERE)
+[Restaurant kitchen service project deployed to Readme.md](https://restaurant-kitchen-service-oqg7.onrender.com)
 
 ## Installation
 
