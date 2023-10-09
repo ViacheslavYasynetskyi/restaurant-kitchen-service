@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="bg-primary">
+      <h1 class="ml-5 p-3">
+        {{ dish.name }}
+        <a href="{% url 'menu:dishes-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
+          Delete
+        </a>
+
+        <a href="{% url 'menu:dishes-update' pk=dish.id %}" class="btn btn-secondary link-to-page">
+          Update
+        </a>
+
+        <a href="{% url 'menu:dishes-list' %}" class="btn btn-dark link-to-page">
+          Back
+        </a>
+      </h1>
+      <p  class="ml-5">Dish type: ({{ dish.dish_type.name }})</p>
+      <h1  class="ml-5 p-3">
+        Cookers
+
+        {% if dish in user.dishes.all %}
+          <a href="{% url 'menu:toggle-dish-assign' pk=dish.id %}" class="btn btn-danger link-to-page">
+            Delete me from this dish
+          </a>
+        {% else %}
+          <a href="{% url 'menu:toggle-dish-assign' pk=dish.id %}" class="btn btn-success link-to-page">
+            Assign me from this dish
+          </a>
+        {% endif %}
+
+      </h1>
+      <hr>
+      <ul class="ml-5">
+        {% for cooker in dish.cooks.all %}
+          <li>{{ cooker.username }} ({{ cooker.first_name }} {{ cooker.last_name }})</li>
+        {% endfor %}
+      </ul>;
+    </div>
+{% endblock %}

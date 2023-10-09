@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <div class="bg-primary">
+      <h1 class="ml-5 p-3">{{ object|yesno:"Update,Create" }} dish</h1>
+      <form action="" method="post" novalidate class="ml-5 mr-5">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <input type="submit" value="Submit" class="btn btn-dark m-3">
+        <a href="{% url 'menu:dishes-list' %}" class="btn btn-dark">Back</a>
+
+      </form>
+    </div>
+{% endblock %}

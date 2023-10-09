@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="bg-primary">
+      <h1 class="p-3">Delete cooker?</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <input type="submit" value="Yes" class="btn btn-danger m-3">
+        <a href="{% url 'menu:cooks-detail' pk=cook.id %}" class="btn btn-dark">No</a>
+      </form>
+    </div>
+{% endblock %}

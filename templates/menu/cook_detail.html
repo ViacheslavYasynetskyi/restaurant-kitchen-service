@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="bg-primary">
+      <h1 class="ml-5 p-3">
+        Cook: {{ cook.username }}
+        <a href="{% url 'menu:cooks-delete' pk=cook.id %}" class="btn btn-danger link-to-page">
+          Delete
+        </a>
+
+        <a href="{% url 'menu:cooks-update' pk=cook.id %}" class="btn btn-secondary link-to-page">
+          Update years of experience
+        </a>
+
+        <a href="{% url 'menu:cooks-list' %}" class="btn btn-dark link-to-page">
+          Back
+        </a>
+      </h1>
+
+      <div class="ml-5">
+          <p><strong>First name:</strong> {{ cook.first_name }}</p>
+          <p><strong>Last name:</strong> {{ cook.last_name }}</p>
+          <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
+          <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
+      </div>
+
+      <div class="ml-5 pl-3 pb-2">
+        <h4>Dishes</h4>
+
+        {% for food in cook.dishes.all %}
+            <hr>
+            <p><strong>Name:</strong> {{ food.name }}</p>
+            <p><strong>DishType:</strong> {{ food.dish_type.name }}</p>
+            <p class="text-muted"><strong>Id:</strong> {{food.id}}</p>
+
+        {% empty %}
+          <p>No dishes!</p>
+        {% endfor %}
+      </div>
+    </div>
+{% endblock %}

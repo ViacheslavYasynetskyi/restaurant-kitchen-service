@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <div class="bg-primary">
+      <h1 class="ml-5 p-3">
+        Dish Type List
+
+      </h1>
+      <a href="{% url 'menu:dish-types-create' %}" class="btn btn-primary link-to-page bg-dark ml-5 mb-3">
+          Create
+      </a>
+      {% include "includes/search_form.html" %}
+
+      {% if dish_type_list %}
+        <table class="table">
+          <tr>
+            <th class="pl-3">ID</th>
+            <th>Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+
+          {% for dish_type in dish_type_list %}
+            <tr>
+              <td class="pl-3">
+                  {{ dish_type.id }}
+              </td>
+              <td>
+                  {{ dish_type.name }}
+              </td>
+              <td>
+                  <a href="{% url 'menu:dish-types-update' pk=dish_type.id %}" class="text-dark">
+                    Update
+                  </a>
+              </td>
+                <td>
+                  <a style="color: red"
+                    href="{% url 'menu:dish-types-delete' pk=dish_type.id %}">
+                    Delete
+                  </a>
+                </td>
+            </tr>
+          {% endfor %}
+        </table>
+
+      {% else %}
+          <p>There are no dish types in the menu.</p>
+      {% endif %}
+    </div>
+    <a href="{% url 'menu:index' %}" class="btn btn-primary link-to-page bg-dark ml-5 mb-3">
+          Back
+    </a>
+{% endblock %}
